@@ -1,7 +1,7 @@
 package com.nuc.zxxk.pojo;
 
 public class student {
-    private String userid;
+    private String userId;
 
     private String username;
 
@@ -16,11 +16,11 @@ public class student {
     private String dept;
 
     public String getUserid() {
-        return userid;
+        return userId;
     }
 
     public void setUserid(String userid) {
-        this.userid = userid == null ? null : userid.trim();
+        this.userId = userId == null ? null : userid.trim();
     }
 
     public String getUsername() {

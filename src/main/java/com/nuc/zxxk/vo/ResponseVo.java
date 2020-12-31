@@ -1,4 +1,4 @@
-package com.nuc.zxxk;
+package com.nuc.zxxk.vo;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.nuc.zxxk.enums.ResponseEnum;

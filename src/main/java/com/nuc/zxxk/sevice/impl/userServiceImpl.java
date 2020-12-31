@@ -1,6 +1,11 @@
 package com.nuc.zxxk.sevice.impl;
 
-import com.nuc.zxxk.ResponseVo;
+import com.nuc.zxxk.mapper.studentMapper;
+import com.nuc.zxxk.mapper.teacherMapper;
+import com.nuc.zxxk.pojo.UserStudent;
+import com.nuc.zxxk.pojo.UserTeacher;
+import com.nuc.zxxk.sevice.studentService;
+import com.nuc.zxxk.vo.ResponseVo;
 import com.nuc.zxxk.enums.ResponseEnum;
 import com.nuc.zxxk.mapper.UserMapper;
 import com.nuc.zxxk.pojo.User;
@@ -9,26 +14,41 @@ import com.nuc.zxxk.sevice.userService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.util.DigestUtils;
 
-import java.nio.charset.StandardCharsets;
 @Service
 @Transactional
-public class userServiceImpl implements userService {
+public class userServiceImpl<T> implements userService {
     @Autowired
     UserMapper userMapper;
+    @Autowired
+    studentMapper studentMapper;
+    @Autowired
+    teacherMapper teacherMapper;
     @Override
-    public ResponseVo<User> login(String userId, String password) {
+    public ResponseVo<T> login(String userId, String password) {
         User user = userMapper.selectByPrimaryKey(userId);
+        UserStudent userStudent = null;
+        UserTeacher userTeacher = null;
         if(user==null){
             //用户不存在
             return ResponseVo.error(ResponseEnum.USERNAME_OR_PASSWORD_ERROR);
         }
-        if(!user.getPassword().equalsIgnoreCase(DigestUtils.md5DigestAsHex(password.getBytes(StandardCharsets.UTF_8)))){
+        if(!user.getPassword().equalsIgnoreCase(password)){
             //密码错误
             return ResponseVo.error(ResponseEnum.USERNAME_OR_PASSWORD_ERROR);
         }
-        user.setPassword("");
-        return ResponseVo.success(user);
+        if(user.getType() == 2) {
+            userStudent = studentMapper.selectUserStudent(userId);
+            userStudent.setPassword("******");
+            return (ResponseVo<T>) ResponseVo.success(userStudent);
+
+        } else if(user.getType() == 1){
+            userTeacher = teacherMapper.selectUserTeacher(userId);
+            userTeacher.setPassword("******");
+            return (ResponseVo<T>) ResponseVo.success(userTeacher );
+        }
+        user.setPassword("******");
+        return (ResponseVo<T>) ResponseVo.success(user);
     }
+
 }

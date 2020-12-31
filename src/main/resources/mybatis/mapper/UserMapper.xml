@@ -2,10 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.nuc.zxxk.mapper.UserMapper">
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select 
-     userId, password, type
-    from user
-    where userId = #{id,jdbcType=VARCHAR}
+    select * from user where userId = #{id,jdbcType=VARCHAR}
   </select>
 
   <resultMap id="BaseResultMap" type="com.nuc.zxxk.pojo.User">

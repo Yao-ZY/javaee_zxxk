@@ -1,6 +1,6 @@
 package com.nuc.zxxk.exception;
 
-import com.nuc.zxxk.ResponseVo;
+import com.nuc.zxxk.vo.ResponseVo;
 import com.nuc.zxxk.enums.ResponseEnum;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;

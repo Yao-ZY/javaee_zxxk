@@ -1,6 +1,6 @@
 package com.nuc.zxxk.controller;
 import com.nuc.zxxk.consts.*;
-import com.nuc.zxxk.ResponseVo;
+import com.nuc.zxxk.vo.ResponseVo;
 import com.nuc.zxxk.enums.ResponseEnum;
 import com.nuc.zxxk.pojo.User;
 import com.nuc.zxxk.pojo.UserLoginFrom;
@@ -18,8 +18,8 @@ import javax.validation.Valid;
 public class loginController {
     @Autowired
     userService userService;
-    @PostMapping("/login")
-    public ResponseVo<User> login(@Valid @RequestBody UserLoginFrom userLoginFrom,
+    @GetMapping("/login")
+    public ResponseVo<User> login(@Valid  UserLoginFrom userLoginFrom,
                                   BindingResult bindingResult,
                                   HttpSession session){
         if(bindingResult.hasErrors()){

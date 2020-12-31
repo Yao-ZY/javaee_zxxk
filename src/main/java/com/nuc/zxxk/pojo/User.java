@@ -1,7 +1,7 @@
 package com.nuc.zxxk.pojo;
 
 public class User {
-    private String id;
+    private String userId;
 
     private String password;
 
@@ -11,11 +11,11 @@ public class User {
 
 
     public String getId() {
-        return id;
+        return userId;
     }
 
     public void setId(String id) {
-        this.id = id == null ? null : id.trim();
+        this.userId = userId == null ? null : userId.trim();
     }
 
 
@@ -30,6 +30,15 @@ public class User {
 
     public Integer getType() {
         return type;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "userId='" + userId + '\'' +
+                ", password='" + password + '\'' +
+                ", type=" + type +
+                '}';
     }
 
     public void setType(Integer type) {

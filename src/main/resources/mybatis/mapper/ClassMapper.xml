@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nuc.zxxk.mapper.ClassMapper">
+  <resultMap id="BaseResultMap" type="com.nuc.zxxk.pojo.Class">
+    <result column="classId" jdbcType="VARCHAR" property="classid" />
+    <result column="className" jdbcType="VARCHAR" property="classname" />
+    <result column="classTeacher" jdbcType="VARCHAR" property="classteacher" />
+    <result column="classPeople" jdbcType="INTEGER" property="classpeople" />
+    <result column="classweek" jdbcType="VARCHAR" property="classweek" />
+    <result column="startTime" jdbcType="VARCHAR" property="starttime" />
+    <result column="classHours" jdbcType="VARCHAR" property="classhours" />
+    <result column="classCredit" jdbcType="INTEGER" property="classcredit" />
+    <result column="classAddress" jdbcType="VARCHAR" property="classaddress" />
+    <result column="grade" jdbcType="VARCHAR" property="grade" />
+  </resultMap>
+  <insert id="insert" parameterType="com.nuc.zxxk.pojo.Class">
+    insert into class (classId, className, classTeacher, 
+      classPeople, classweek, startTime, 
+      classHours, classCredit, classAddress, 
+      grade)
+    values (#{classid,jdbcType=VARCHAR}, #{classname,jdbcType=VARCHAR}, #{classteacher,jdbcType=VARCHAR}, 
+      #{classpeople,jdbcType=INTEGER}, #{classweek,jdbcType=VARCHAR}, #{starttime,jdbcType=VARCHAR}, 
+      #{classhours,jdbcType=VARCHAR}, #{classcredit,jdbcType=INTEGER}, #{classaddress,jdbcType=VARCHAR}, 
+      #{grade,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.nuc.zxxk.pojo.Class">
+    insert into class
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="classid != null">
+        classId,
+      </if>
+      <if test="classname != null">
+        className,
+      </if>
+      <if test="classteacher != null">
+        classTeacher,
+      </if>
+      <if test="classpeople != null">
+        classPeople,
+      </if>
+      <if test="classweek != null">
+        classweek,
+      </if>
+      <if test="starttime != null">
+        startTime,
+      </if>
+      <if test="classhours != null">
+        classHours,
+      </if>
+      <if test="classcredit != null">
+        classCredit,
+      </if>
+      <if test="classaddress != null">
+        classAddress,
+      </if>
+      <if test="grade != null">
+        grade,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="classid != null">
+        #{classid,jdbcType=VARCHAR},
+      </if>
+      <if test="classname != null">
+        #{classname,jdbcType=VARCHAR},
+      </if>
+      <if test="classteacher != null">
+        #{classteacher,jdbcType=VARCHAR},
+      </if>
+      <if test="classpeople != null">
+        #{classpeople,jdbcType=INTEGER},
+      </if>
+      <if test="classweek != null">
+        #{classweek,jdbcType=VARCHAR},
+      </if>
+      <if test="starttime != null">
+        #{starttime,jdbcType=VARCHAR},
+      </if>
+      <if test="classhours != null">
+        #{classhours,jdbcType=VARCHAR},
+      </if>
+      <if test="classcredit != null">
+        #{classcredit,jdbcType=INTEGER},
+      </if>
+      <if test="classaddress != null">
+        #{classaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="grade != null">
+        #{grade,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

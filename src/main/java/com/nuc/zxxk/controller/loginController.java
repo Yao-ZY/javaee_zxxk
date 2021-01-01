@@ -19,7 +19,7 @@ public class loginController {
     @Autowired
     userService userService;
     @PostMapping("/login")
-    public ResponseVo<User> login(@Valid  UserLoginFrom userLoginFrom,
+    public ResponseVo<User> login(@Valid @RequestBody  UserLoginFrom userLoginFrom,
                                   BindingResult bindingResult,
                                   HttpSession session){
         if(bindingResult.hasErrors()){

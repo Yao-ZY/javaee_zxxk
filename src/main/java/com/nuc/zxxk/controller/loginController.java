@@ -18,7 +18,7 @@ import javax.validation.Valid;
 public class loginController {
     @Autowired
     userService userService;
-    @GetMapping("/login")
+    @PostMapping("/login")
     public ResponseVo<User> login(@Valid  UserLoginFrom userLoginFrom,
                                   BindingResult bindingResult,
                                   HttpSession session){

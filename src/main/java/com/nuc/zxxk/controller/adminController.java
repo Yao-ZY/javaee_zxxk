@@ -16,6 +16,9 @@ import java.util.List;
 public class adminController {
       @Autowired
       ClassService classService;
+       /**
+        * 展示所有课程
+        * */
        @RequestMapping("/findAllClass")
        @ResponseBody
        public ResponseVo<List<Class>> findAllClass() {

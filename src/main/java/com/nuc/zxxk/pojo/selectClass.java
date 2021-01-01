@@ -1,23 +1,11 @@
 package com.nuc.zxxk.pojo;
 
+import lombok.Data;
+
+@Data
 public class selectClass {
-    private String classid;
+    private String classId;
 
-    private String userid;
+    private String userId;
 
-    public String getClassid() {
-        return classid;
-    }
-
-    public void setClassid(String classid) {
-        this.classid = classid == null ? null : classid.trim();
-    }
-
-    public String getUserid() {
-        return userid;
-    }
-
-    public void setUserid(String userid) {
-        this.userid = userid == null ? null : userid.trim();
-    }
 }

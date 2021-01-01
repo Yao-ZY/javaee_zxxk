@@ -6,4 +6,5 @@ public interface selectClassMapper {
     int insert(selectClass record);
 
     int insertSelective(selectClass record);
+    int countSelectClass(String userId);
 }

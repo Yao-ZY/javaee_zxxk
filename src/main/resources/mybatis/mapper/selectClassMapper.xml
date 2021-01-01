@@ -6,9 +6,12 @@
     <result column="userId" jdbcType="VARCHAR" property="userid" />
   </resultMap>
   <insert id="insert" parameterType="com.nuc.zxxk.pojo.selectClass">
-    insert into selectclass (classId, userId)
-    values (#{classid,jdbcType=VARCHAR}, #{userid,jdbcType=VARCHAR})
+    insert into `selectClass` (classId, userId)
+    values (#{classId,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR})
   </insert>
+  <select id="countSelectClass" resultType="int" parameterType="String">
+    select count(*) from `selectClass` where userId=#{userId}
+  </select>
   <insert id="insertSelective" parameterType="com.nuc.zxxk.pojo.selectClass">
     insert into selectclass
     <trim prefix="(" suffix=")" suffixOverrides=",">

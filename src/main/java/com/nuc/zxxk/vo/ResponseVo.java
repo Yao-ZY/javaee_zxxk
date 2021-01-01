@@ -3,6 +3,7 @@ package com.nuc.zxxk.vo;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.nuc.zxxk.enums.ClassEnum;
 import com.nuc.zxxk.enums.ResponseEnum;
+import com.nuc.zxxk.enums.selectEnum;
 import lombok.Data;
 
 @Data
@@ -32,6 +33,9 @@ public class ResponseVo<T> {
     }
     public static <T> ResponseVo<T> error(ResponseEnum responseEnum){
         return new ResponseVo<>(responseEnum.getCode(),responseEnum.getDesc());
+    }
+    public static <T> ResponseVo<T> error(selectEnum responseEnum){
+        return new ResponseVo<>(responseEnum.getCode(),responseEnum.getMsg());
     }
     public static <T> ResponseVo<T> error(ClassEnum responseEnum){
         return new ResponseVo<>(responseEnum.getCode(),responseEnum.getMsg());

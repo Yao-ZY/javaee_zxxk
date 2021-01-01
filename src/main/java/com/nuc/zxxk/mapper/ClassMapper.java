@@ -10,4 +10,5 @@ public interface ClassMapper {
     int insertSelective(Class record);
 
     List<Class>  findAllClass();
+    void updateClassPeople(String classId);
 }

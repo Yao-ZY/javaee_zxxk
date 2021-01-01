@@ -4,7 +4,6 @@ import com.nuc.zxxk.mapper.studentMapper;
 import com.nuc.zxxk.mapper.teacherMapper;
 import com.nuc.zxxk.pojo.UserStudent;
 import com.nuc.zxxk.pojo.UserTeacher;
-import com.nuc.zxxk.sevice.studentService;
 import com.nuc.zxxk.vo.ResponseVo;
 import com.nuc.zxxk.enums.ResponseEnum;
 import com.nuc.zxxk.mapper.UserMapper;
@@ -49,6 +48,11 @@ public class userServiceImpl<T> implements userService {
         }
         user.setPassword("******");
         return (ResponseVo<T>) ResponseVo.success(user);
+    }
+
+    @Override
+    public ResponseVo update(Object user) {
+        return null;
     }
 
 }

@@ -24,4 +24,19 @@ public class ClassServiceImpl implements ClassService {
         }
         return  ResponseVo.success(s_class);
     }
+
+    @Override
+    public ResponseVo<Class> insertClass(Class c) {
+        return null;
+    }
+
+    @Override
+    public ResponseVo<List<Class>> findClassByContent(String content) {
+        return null;
+    }
+
+    @Override
+    public void updateClassPeople(String classId) {
+        classMapper.updateClassPeople(classId);
+    }
 }

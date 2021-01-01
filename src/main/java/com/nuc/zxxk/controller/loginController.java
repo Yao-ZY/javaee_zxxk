@@ -32,4 +32,10 @@ public class loginController {
         session.setAttribute(ZXXKConst.CURRENT_USER,userResponseVo.getData());
         return userResponseVo;
     }
+
+    @PostMapping("/loginOut")
+    public String loginOut(HttpSession session) {
+        session.setAttribute(ZXXKConst.CURRENT_USER,null);
+        return "退出登录";
+    }
 }

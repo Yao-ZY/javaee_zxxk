@@ -23,11 +23,16 @@ public class selectClassServiceImpl implements selectClassService {
     @Override
     public ResponseVo<String> selectOne(selectClass selectClass) {
         int num = countSelectClass(selectClass.getUserId());
+        int n = 0;
         if(num == 3) {
             return ResponseVo.error(selectEnum.COUNT_ERROR);
+        }else {
+            n = selectClassMapper.insert(selectClass);
+            classMapper.updateClassPeople(selectClass.getUserId());
         }
-        selectClassMapper.insert(selectClass);
-        classMapper.updateClassPeople(selectClass.getUserId());
+        if(n == 0) {
+            return  ResponseVo.error(selectEnum.Error);
+        } else
         return  ResponseVo.error(selectEnum.SUCCESS);
     }
 

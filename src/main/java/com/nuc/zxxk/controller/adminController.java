@@ -7,6 +7,7 @@ import com.nuc.zxxk.vo.ResponseVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
@@ -21,7 +22,8 @@ public class adminController {
         * */
        @RequestMapping("/findAllClass")
        @ResponseBody
-       public ResponseVo<List<Class>> findAllClass() {
+       public ResponseVo<List<Class>> findAllClass(@RequestParam(required = false,defaultValue = "1") Integer pageNum,
+                                                   @RequestParam(required = false,defaultValue = "10") Integer pageSize) {
            return classService.findAllClass();
        }
 }

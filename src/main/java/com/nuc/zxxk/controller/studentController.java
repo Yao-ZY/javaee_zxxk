@@ -5,17 +5,18 @@ import com.nuc.zxxk.sevice.selectClassService;
 import com.nuc.zxxk.vo.ResponseVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
-@Controller
+import javax.validation.Valid;
+
+@RestController
 @RequestMapping("/student")
 public class studentController {
     @Autowired
     selectClassService selectClassService;
-    @RequestMapping("/selectClass")
-    @ResponseBody
-    ResponseVo<String> selectOne(selectClass selectClass){
+
+    @GetMapping("/selectClass")
+    ResponseVo<String> selectOne(@Valid @RequestBody selectClass selectClass){
         return selectClassService.selectOne(selectClass);
     }
 }

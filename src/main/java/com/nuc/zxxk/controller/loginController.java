@@ -1,5 +1,6 @@
 package com.nuc.zxxk.controller;
 import com.nuc.zxxk.consts.*;
+import com.nuc.zxxk.pojo.UserStudent;
 import com.nuc.zxxk.pojo.UserTeacher;
 import com.nuc.zxxk.vo.ResponseVo;
 import com.nuc.zxxk.enums.ResponseEnum;
@@ -19,6 +20,9 @@ import javax.validation.Valid;
 public class loginController {
     @Autowired
     userService userService;
+    /**
+     * 登录
+     * */
     @PostMapping("/login")
     public ResponseVo<User> login(@Valid @RequestBody  UserLoginFrom userLoginFrom,
                                   BindingResult bindingResult,
@@ -28,18 +32,21 @@ public class loginController {
                     bindingResult.getFieldError().getField()+" "+bindingResult.getFieldError().getDefaultMessage());
         }
         ResponseVo<User> userResponseVo= userService.login(userLoginFrom.getUserId(),userLoginFrom.getPassword());
-
         //设置session
         session.setAttribute(ZXXKConst.CURRENT_USER,userResponseVo.getData());
         return userResponseVo;
     }
-
+    /**
+     * 登出
+     * */
     @PostMapping("/loginOut")
-    public String loginOut(HttpSession session) {
+    public ResponseVo<String> loginOut(HttpSession session) {
         session.setAttribute(ZXXKConst.CURRENT_USER,null);
-        session.setAttribute("type",null);
-        return "退出登录";
+        return ResponseVo.error(ResponseEnum.SUCCESS_OUT);
     }
+    /**
+     * 用户信息
+     * */
     @GetMapping("/userInfo")
     public <T> Object userInfo(HttpSession session){
         return   session.getAttribute(ZXXKConst.CURRENT_USER);

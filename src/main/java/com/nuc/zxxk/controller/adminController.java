@@ -19,7 +19,7 @@ public class adminController {
       @Autowired
       ClassService classService;
        /**
-        * 展示所有课程
+        * 分页PageInfo展示所有课程
         * */
        @RequestMapping("/findAllClass")
        @ResponseBody

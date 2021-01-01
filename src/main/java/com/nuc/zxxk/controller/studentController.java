@@ -13,7 +13,9 @@ import javax.validation.Valid;
 public class studentController {
     @Autowired
     selectClassService selectClassService;
-
+    /**
+     * 学生选课
+     * */
     @GetMapping("/selectClass")
     ResponseVo<String> selectOne(@Valid @RequestBody selectClass selectClass){
         return selectClassService.selectOne(selectClass);

@@ -1,6 +1,8 @@
 package com.nuc.zxxk.sevice;
 
 import java.util.List;
+
+import com.github.pagehelper.PageInfo;
 import com.nuc.zxxk.pojo.Class;
 import com.nuc.zxxk.vo.ResponseVo;
 
@@ -8,7 +10,7 @@ public interface ClassService {
     /**
      * 展示所有课程列表
      * */
-    ResponseVo<List<Class>> findAllClass();
+    ResponseVo<PageInfo> findAllClass(Integer pageNum, Integer pageSize);
 
     /**
      * 添加课程功能

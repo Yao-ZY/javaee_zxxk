@@ -1,5 +1,6 @@
 package com.nuc.zxxk.controller;
 import com.nuc.zxxk.consts.*;
+import com.nuc.zxxk.pojo.UserTeacher;
 import com.nuc.zxxk.vo.ResponseVo;
 import com.nuc.zxxk.enums.ResponseEnum;
 import com.nuc.zxxk.pojo.User;
@@ -36,6 +37,11 @@ public class loginController {
     @PostMapping("/loginOut")
     public String loginOut(HttpSession session) {
         session.setAttribute(ZXXKConst.CURRENT_USER,null);
+        session.setAttribute("type",null);
         return "退出登录";
+    }
+    @GetMapping("/userInfo")
+    public <T> Object userInfo(HttpSession session){
+        return   session.getAttribute(ZXXKConst.CURRENT_USER);
     }
 }

@@ -1,5 +1,6 @@
 package com.nuc.zxxk.controller;
 
+import com.github.pagehelper.PageInfo;
 import com.nuc.zxxk.enums.ClassEnum;
 import com.nuc.zxxk.pojo.Class;
 import com.nuc.zxxk.sevice.ClassService;
@@ -22,8 +23,8 @@ public class adminController {
         * */
        @RequestMapping("/findAllClass")
        @ResponseBody
-       public ResponseVo<List<Class>> findAllClass(@RequestParam(required = false,defaultValue = "1") Integer pageNum,
-                                                   @RequestParam(required = false,defaultValue = "10") Integer pageSize) {
-           return classService.findAllClass();
+       public ResponseVo<PageInfo> findAllClass(@RequestParam(required = false,defaultValue = "1") Integer pageNum,
+                                                      @RequestParam(required = false,defaultValue = "10") Integer pageSize) {
+           return classService.findAllClass(pageNum, pageSize);
        }
 }

@@ -1,6 +1,7 @@
 package com.nuc.zxxk.vo;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.nuc.zxxk.enums.ClassEnum;
 import com.nuc.zxxk.enums.ResponseEnum;
 import lombok.Data;
 
@@ -31,6 +32,9 @@ public class ResponseVo<T> {
     }
     public static <T> ResponseVo<T> error(ResponseEnum responseEnum){
         return new ResponseVo<>(responseEnum.getCode(),responseEnum.getDesc());
+    }
+    public static <T> ResponseVo<T> error(ClassEnum responseEnum){
+        return new ResponseVo<>(responseEnum.getCode(),responseEnum.getMsg());
     }
     public static <T> ResponseVo<T> error(ResponseEnum responseEnum,String msg){
         return new ResponseVo<>(responseEnum.getCode(),msg);

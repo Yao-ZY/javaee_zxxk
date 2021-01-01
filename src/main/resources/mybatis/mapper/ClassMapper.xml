@@ -13,6 +13,9 @@
     <result column="classAddress" jdbcType="VARCHAR" property="classaddress" />
     <result column="grade" jdbcType="VARCHAR" property="grade" />
   </resultMap>
+  <select id="findAllClass" resultType="com.nuc.zxxk.pojo.Class" >
+     select * from  `Class`
+  </select>
   <insert id="insert" parameterType="com.nuc.zxxk.pojo.Class">
     insert into class (classId, className, classTeacher, 
       classPeople, classweek, startTime, 

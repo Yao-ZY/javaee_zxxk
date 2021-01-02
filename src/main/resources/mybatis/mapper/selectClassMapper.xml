@@ -12,23 +12,7 @@
   <select id="countSelectClass" resultType="int" parameterType="String">
     select count(*) from `selectClass` where userId=#{userId}
   </select>
-  <insert id="insertSelective" parameterType="com.nuc.zxxk.pojo.selectClass">
-    insert into selectclass
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="classid != null">
-        classId,
-      </if>
-      <if test="userid != null">
-        userId,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="classid != null">
-        #{classid,jdbcType=VARCHAR},
-      </if>
-      <if test="userid != null">
-        #{userid,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
+  <select id="countSelectClassByClassId" resultType="int" parameterType="String">
+    select count(*) from `selectClass` where classId=#{classId}
+  </select>
 </mapper>

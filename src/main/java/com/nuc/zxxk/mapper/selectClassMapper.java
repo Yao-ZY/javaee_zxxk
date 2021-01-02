@@ -4,7 +4,6 @@ import com.nuc.zxxk.pojo.selectClass;
 
 public interface selectClassMapper {
     int insert(selectClass record);
-
-    int insertSelective(selectClass record);
     int countSelectClass(String userId);
+    int  countSelectClassByClassId(String classId);
 }

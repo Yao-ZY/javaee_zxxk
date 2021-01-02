@@ -1,6 +1,5 @@
 package com.nuc.zxxk.sevice.impl;
 
-import com.nuc.zxxk.enums.ResponseEnum;
 import com.nuc.zxxk.mapper.ClassMapper;
 import com.nuc.zxxk.mapper.selectClassMapper;
 import com.nuc.zxxk.pojo.Class;
@@ -23,12 +22,15 @@ public class selectClassServiceImpl implements selectClassService {
     @Override
     public ResponseVo<String> selectOne(selectClass selectClass) {
         int num = countSelectClass(selectClass.getUserId());
+        int numClass = selectClassMapper.countSelectClassByClassId(selectClass.getClassId())+1;
+        System.out.println("选课数量："+numClass);
         int n = 0;
         if(num == 3) {
             return ResponseVo.msg(selectEnum.COUNT_ERROR);
         }else {
             n = selectClassMapper.insert(selectClass);
-            classMapper.updateClassPeople(selectClass.getUserId());
+           int eist= classMapper.updateClassPeople(selectClass.getClassId(),numClass);
+            System.out.println("是否运行该sql语句："+eist);
         }
         if(n == 0) {
             return  ResponseVo.msg(selectEnum.Error);

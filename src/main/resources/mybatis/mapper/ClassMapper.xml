@@ -16,9 +16,6 @@
   <select id="findAllClass" resultType="com.nuc.zxxk.pojo.Class" >
      select * from  `Class`
   </select>
-  <update id="updateClassPeople" parameterType="String">
-    update `Class` set classPeople=classPeople+1 where classId=#{classId}
-  </update>
   <insert id="insert" parameterType="com.nuc.zxxk.pojo.Class">
     insert into `Class` (classId, className, classTeacher,
       classPeople, classweek, startTime, 

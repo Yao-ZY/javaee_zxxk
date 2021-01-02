@@ -10,8 +10,6 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@CrossOrigin(origins = "http://localhost:4321/zxxk", maxAge = 3600)
-
 public class UploadController {
     /**
      * 测试上传图片接口功能
@@ -27,7 +25,6 @@ public class UploadController {
     @PostMapping("/upload")
     @ResponseBody
     public String upload(@RequestParam("file") MultipartFile file) {
-        System.out.println("123");
         if (file.isEmpty()) {
             return "上传失败，请选择文件";
         }

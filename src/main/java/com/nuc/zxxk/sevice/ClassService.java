@@ -25,5 +25,5 @@ public interface ClassService {
     /**
      * 选课  数量加1
      * */
-    void updateClassPeople(String classId);
+    int updateClassPeople(String classId,int num);
 }

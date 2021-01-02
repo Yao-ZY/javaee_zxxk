@@ -24,9 +24,10 @@ public class teacherController {
      * */
     @RequestMapping("/addClass")
     ResponseVo<String> addClass(@Valid  @RequestBody ClassPart classPart){
+        // 设定Id
         Date date = new Date();
         SimpleDateFormat dateFormat= new SimpleDateFormat("yyyyMMddhhmm");
-        System.out.println(dateFormat.format(date));
+        // 插入Class
         Class c = new Class();
         c.setClasspeople(0);
         c.setClassid(dateFormat.format(date));

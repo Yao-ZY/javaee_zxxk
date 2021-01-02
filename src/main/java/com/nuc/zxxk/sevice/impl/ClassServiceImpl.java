@@ -50,7 +50,7 @@ public class ClassServiceImpl implements ClassService {
     }
 
     @Override
-    public void updateClassPeople(String classId) {
-        classMapper.updateClassPeople(classId);
+    public int updateClassPeople(String classId,int num) {
+        return classMapper.updateClassPeople(classId,num);
     }
 }

@@ -128,8 +128,8 @@ public class ClassServiceImpl implements ClassService {
     @Override
     public ResponseVo<String> deleteClass(String classId) {
         int n = classMapper.deleteClass(classId);
-        int m = selectClassMapper.deleteSelect(classId);
-        if(n == 0 || m == 0)
+        selectClassMapper.deleteSelect(classId);
+        if(n == 0)
             return ResponseVo.msg(ClassEnum.DELETE_ERROR);
         else
         return ResponseVo.msg(ClassEnum.DELETE_SUCCESS);

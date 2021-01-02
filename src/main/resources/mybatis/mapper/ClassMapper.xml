@@ -32,4 +32,10 @@
   <delete id="deleteClass" parameterType="String">
      delete from Class where classId=#{classId}
   </delete>
+  <update id="updateClass" parameterType="com.nuc.zxxk.pojo.ClassUpdate">
+    update `Class` set classPeople=#{classUpdate.classpeople},classWeek=#{classUpdate.classweek},
+    startTime=#{classUpdate.starttime},classHours=#{classUpdate.classhours},classCredit=#{classUpdate.classcredit},
+    classAddress=#{classUpdate.classaddress},image=#{classUpdate.image}
+    where classId=#{classUpdate.classid}
+  </update>
 </mapper>

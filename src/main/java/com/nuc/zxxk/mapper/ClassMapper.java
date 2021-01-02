@@ -26,8 +26,5 @@ public interface ClassMapper {
     List<Class> findClassByTeacherAndClassName(String teacher, String className);
     @Select("select * from Class where classId=#{classId}")
     Class showClass(String classId);
-    @Update("update Class set classPeople=#{ClassUpdate.classpeople},classWeek=#{ClassUpdate.classweek}, startTime=#{ClassUpdate.starttime}," +
-            "classHours=#{ClassUpdate.classhours},classCredit=#{ClassUpdate.classcredit},classAddress=#{ClassUpdate.classaddress}," +
-            "image=#{ClassUpdate.image} where classId = #{ClassUpdate.classid}")
-    int updateClass(ClassUpdate ClassUpdate);
+    int updateClass(@Param("classUpdate") ClassUpdate classUpdate);
 }

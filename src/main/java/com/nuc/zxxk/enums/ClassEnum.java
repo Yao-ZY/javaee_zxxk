@@ -10,7 +10,10 @@ public enum ClassEnum {
     DELETE_SUCCESS(3,"删除选课成功"),
     DELETE_ERROR(4,"删除选课失败"),
     SEARCH_ERROR(5,"没有数据"),
-    SELECT_NULL(6,"请填写查找信息")
+    SELECT_NULL(6,"请填写查找信息"),
+    SHOW_ERROR(7,"查看课程失败"),
+    UPDATE_ERROR(8,"修改课程信息失败"),
+    UPDATE_SUCCESS(8,"修改课程信息成功")
     ;
 
     Integer code;

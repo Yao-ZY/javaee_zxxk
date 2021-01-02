@@ -1,6 +1,7 @@
 package com.nuc.zxxk.mapper;
 
 import com.nuc.zxxk.pojo.Class;
+import com.nuc.zxxk.pojo.ClassUpdate;
 import com.nuc.zxxk.pojo.student;
 import org.apache.ibatis.annotations.*;
 
@@ -23,4 +24,10 @@ public interface ClassMapper {
     List<Class> findClassByClassName(String className);
     @Select("select * from Class where classTeacher like '%${teacher}%' and className like '%${className}%'")
     List<Class> findClassByTeacherAndClassName(String teacher, String className);
+    @Select("select * from Class where classId=#{classId}")
+    Class showClass(String classId);
+    @Update("update Class set classPeople=#{ClassUpdate.classpeople},classWeek=#{ClassUpdate.classweek}, startTime=#{ClassUpdate.starttime}," +
+            "classHours=#{ClassUpdate.classhours},classCredit=#{ClassUpdate.classcredit},classAddress=#{ClassUpdate.classaddress}," +
+            "image=#{ClassUpdate.image} where classId = #{ClassUpdate.classid}")
+    int updateClass(ClassUpdate ClassUpdate);
 }

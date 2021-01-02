@@ -5,6 +5,7 @@ import com.nuc.zxxk.enums.ClassEnum;
 import com.nuc.zxxk.mapper.ClassMapper;
 import com.nuc.zxxk.mapper.selectClassMapper;
 import com.nuc.zxxk.pojo.Class;
+import com.nuc.zxxk.pojo.ClassUpdate;
 import com.nuc.zxxk.pojo.student;
 import com.nuc.zxxk.sevice.ClassService;
 import com.nuc.zxxk.vo.ResponseVo;
@@ -132,5 +133,19 @@ public class ClassServiceImpl implements ClassService {
             return ResponseVo.msg(ClassEnum.DELETE_ERROR);
         else
         return ResponseVo.msg(ClassEnum.DELETE_SUCCESS);
+    }
+
+    @Override
+    public ResponseVo<Class> showClass(String classId) {
+        Class c = classMapper.showClass(classId);
+        if(c==null) return ResponseVo.msg(ClassEnum.SHOW_ERROR);
+        return ResponseVo.success(c);
+    }
+
+    @Override
+    public ResponseVo<String> updateClass(ClassUpdate ClassUpdate) {
+        int n = classMapper.updateClass(ClassUpdate);
+        if(n == 0) return ResponseVo.msg(ClassEnum.UPDATE_ERROR);
+        return ResponseVo.msg(ClassEnum.UPDATE_SUCCESS);
     }
 }

@@ -3,14 +3,13 @@ package com.nuc.zxxk.controller;
 import com.github.pagehelper.PageInfo;
 import com.nuc.zxxk.enums.ClassEnum;
 import com.nuc.zxxk.pojo.Class;
+import com.nuc.zxxk.pojo.ClassUpdate;
 import com.nuc.zxxk.sevice.ClassService;
 import com.nuc.zxxk.vo.ResponseVo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -40,5 +39,13 @@ public class ClassController {
         }else{
             return classService.findClassByTeacherAndClassName(classPeople, className,pageNum,pageSize);
         }
+    }
+    @GetMapping("/showClass")
+    public ResponseVo<Class> showClass(@RequestParam("classId") String classId) {
+       return classService.showClass(classId);
+    }
+    @PostMapping("/updateClass")
+    public ResponseVo<String> updateClass(@Valid @RequestBody ClassUpdate ClassUpdate){
+        return classService.updateClass(ClassUpdate);
     }
 }

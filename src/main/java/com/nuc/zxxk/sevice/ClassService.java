@@ -36,4 +36,12 @@ public interface ClassService {
      * 删除选课
      * */
     ResponseVo<String> deleteClass(String classId);
+    /**
+     * 展示课程
+     * */
+    ResponseVo<Class>  showClass(String classId);
+    /**
+     * 修改课程信息
+     * */
+    ResponseVo<String> updateClass(ClassUpdate ClassUpdate);
 }

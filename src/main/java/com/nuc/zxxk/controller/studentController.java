@@ -2,6 +2,7 @@ package com.nuc.zxxk.controller;
 
 import com.nuc.zxxk.pojo.Class;
 import com.nuc.zxxk.pojo.selectClass;
+import com.nuc.zxxk.sevice.ClassService;
 import com.nuc.zxxk.sevice.selectClassService;
 import com.nuc.zxxk.vo.ResponseVo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,8 @@ import java.util.List;
 public class studentController {
     @Autowired
     selectClassService selectClassService;
+    @Autowired
+    ClassService classService;
     /**
      * 学生选课
      * */
@@ -29,6 +32,12 @@ public class studentController {
     public ResponseVo<List<Class>> selectClassByUserId(@RequestParam("userId") String userId){
         return selectClassService.selectClassByUserId(userId);
     }
-
+    /**
+     * 展示学生未选的全部课程
+     * */
+    @GetMapping("/findAll")
+    public List<Class> findAllByUserId(@RequestParam("userId") String userId){
+        return classService.findAllByUserId(userId);
+    }
 
 }

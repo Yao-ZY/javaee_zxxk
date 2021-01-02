@@ -44,4 +44,9 @@ public interface ClassService {
      * 修改课程信息
      * */
     ResponseVo<String> updateClass(ClassUpdate ClassUpdate);
+
+    /**
+     * 学生未选课程
+     * */
+    List<Class> findAllByUserId(String userId);
 }

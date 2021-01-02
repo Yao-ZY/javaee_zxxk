@@ -27,4 +27,6 @@ public interface ClassMapper {
     @Select("select * from Class where classId=#{classId}")
     Class showClass(String classId);
     int updateClass(@Param("classUpdate") ClassUpdate classUpdate);
+    @Select("select * from Class where classId not in(select classId from selectClass where userId=#{userId})")
+    List<Class> findAllByUserId(String userId);
 }

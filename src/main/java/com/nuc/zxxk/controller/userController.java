@@ -16,6 +16,9 @@ public class userController {
 
     @Autowired
     userService userService;
+    /**
+     * 修改密码
+     * */
     @PostMapping("/updatePassword")
     public ResponseVo<String> update(@RequestBody UserLoginFrom user){
         return userService.update(user.getPassword(), user.getUserId());

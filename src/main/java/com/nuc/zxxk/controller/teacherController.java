@@ -22,7 +22,7 @@ public class teacherController {
     /**
      * 发布选课
      * */
-    @RequestMapping("/addClass")
+    @PostMapping("/addClass")
     ResponseVo<String> addClass(@Valid  @RequestBody ClassPart classPart){
         // 设定Id
         Date date = new Date();

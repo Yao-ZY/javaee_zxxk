@@ -148,4 +148,9 @@ public class ClassServiceImpl implements ClassService {
         if(n == 0) return ResponseVo.msg(ClassEnum.UPDATE_ERROR);
         return ResponseVo.msg(ClassEnum.UPDATE_SUCCESS);
     }
+
+    @Override
+    public List<Class> findAllByUserId(String userId) {
+        return classMapper.findAllByUserId(userId);
+    }
 }

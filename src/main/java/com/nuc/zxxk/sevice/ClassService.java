@@ -23,7 +23,7 @@ public interface ClassService {
     ResponseVo<List<Class>> findClassByContent(String content);
 
     /**
-     * 选课  数量加1
+     * 选课  修改课程数量加1
      * */
     int updateClassPeople(String classId,int num);
 }

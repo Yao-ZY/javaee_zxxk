@@ -12,6 +12,6 @@ public interface userService<T> {
     /**
      * 修改个人信息: 老师信息；学生信息
      * */
-    ResponseVo<T> update(T user);
+    ResponseVo<String> update(T user);
 
 }

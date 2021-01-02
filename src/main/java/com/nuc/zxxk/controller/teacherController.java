@@ -1,14 +1,14 @@
 package com.nuc.zxxk.controller;
 
+import com.github.pagehelper.PageInfo;
 import com.nuc.zxxk.mapper.ClassMapper;
 import com.nuc.zxxk.pojo.*;
 import com.nuc.zxxk.pojo.Class;
 import com.nuc.zxxk.sevice.ClassService;
 import com.nuc.zxxk.vo.ResponseVo;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.text.SimpleDateFormat;
@@ -46,4 +46,9 @@ public class teacherController {
     /**
      * 查询课程人员
      * */
+    @GetMapping("/findStudent")
+    ResponseVo<PageInfo> findClassByClassId(@Param("classId") String classId, @RequestParam(required = false,defaultValue = "1") Integer pageNum,
+                                            @RequestParam(required = false,defaultValue = "10") Integer pageSize){
+        return classService.findClassByClassId(classId, pageNum, pageSize);
+    }
 }

@@ -26,5 +26,7 @@
       #{classhours,jdbcType=VARCHAR}, #{classcredit,jdbcType=INTEGER}, #{classaddress,jdbcType=VARCHAR}, 
       #{image,jdbcType=VARCHAR},#{peopleNum,jdbcType=INTEGER})
   </insert>
-
+  <select id="findClassByClassId" parameterType="String" resultType="com.nuc.zxxk.pojo.student">
+    select z.* from `selectClass` s,`zxxk_student` z where s.classId=#{classId} and s.userId=z.userId
+  </select>
 </mapper>

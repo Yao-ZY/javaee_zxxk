@@ -4,6 +4,7 @@ import com.github.pagehelper.PageInfo;
 import com.nuc.zxxk.enums.ClassEnum;
 import com.nuc.zxxk.mapper.ClassMapper;
 import com.nuc.zxxk.pojo.Class;
+import com.nuc.zxxk.pojo.student;
 import com.nuc.zxxk.sevice.ClassService;
 import com.nuc.zxxk.vo.ResponseVo;
 import org.springframework.beans.BeanUtils;
@@ -47,6 +48,23 @@ public class ClassServiceImpl implements ClassService {
     @Override
     public ResponseVo<List<Class>> findClassByContent(String content) {
         return null;
+    }
+
+
+    @Override
+    public ResponseVo<PageInfo> findClassByClassId(String classId,Integer pageNum, Integer pageSize) {
+        List<student> c_student = classMapper.findClassByClassId(classId);
+        System.out.println(c_student.get(0).toString());
+        List<student> productCategoryVoList = c_student.stream()
+                .map(e->{
+                    student productCategoryVo = new student();
+                    BeanUtils.copyProperties(e,productCategoryVo);
+                    return productCategoryVo;
+                })
+                .collect(Collectors.toList());
+        PageInfo pageInfo = new PageInfo(c_student);
+        pageInfo.setList(productCategoryVoList);
+        return ResponseVo.success(pageInfo);
     }
 
     @Override

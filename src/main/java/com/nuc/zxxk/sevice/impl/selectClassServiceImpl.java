@@ -23,12 +23,15 @@ public class selectClassServiceImpl implements selectClassService {
     public ResponseVo<String> selectOne(selectClass selectClass) {
         int num = countSelectClass(selectClass.getUserId());
         int numClass = selectClassMapper.countSelectClassByClassId(selectClass.getClassId())+1;
+        int classPeople = classMapper.selectClass(selectClass.getClassId());
         int n = 0;
         if(num == 3) {
             return ResponseVo.msg(selectEnum.COUNT_ERROR);
-        }else {
+        }else if(numClass < classPeople){
             n = selectClassMapper.insert(selectClass);
-           int eist= classMapper.updateClassPeople(selectClass.getClassId(),numClass);
+            classMapper.updateClassPeople(selectClass.getClassId(),numClass);
+        }else {
+            return ResponseVo.msg(selectEnum.NUM_ERROR);
         }
         if(n == 0) {
             return  ResponseVo.msg(selectEnum.Error);

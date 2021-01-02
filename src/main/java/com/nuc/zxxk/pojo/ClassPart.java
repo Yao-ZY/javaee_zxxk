@@ -13,6 +13,8 @@ public class ClassPart {
     private String classteacher;
     @NotBlank(message = "课程周期不能为空")
     private String classweek;
+    @NotNull(message = "课程人数不能为空")
+    private Integer classpeople;
     @NotBlank(message = "开始周不能为空")
     private String starttime;
     @NotBlank(message = "开课时间不能为空")

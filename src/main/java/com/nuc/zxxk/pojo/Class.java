@@ -9,6 +9,7 @@ public class Class {
 
     private String classid;
     private String image;
+    private Integer peopleNum;
     private String classname;
     private String classteacher;
     private Integer classpeople;

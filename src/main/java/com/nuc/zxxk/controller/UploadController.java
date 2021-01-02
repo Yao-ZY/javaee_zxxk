@@ -16,7 +16,6 @@ public class UploadController {
      * */
     @RequestMapping("/index")
     public String showIndex(){
-        System.out.println("123");
         return "index";
     }
     /**

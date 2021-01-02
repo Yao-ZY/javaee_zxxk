@@ -20,11 +20,11 @@
     insert into `Class` (classId, className, classTeacher,
       classPeople, classweek, startTime, 
       classHours, classCredit, classAddress, 
-      image)
+      image,peopleNum)
     values (#{classid,jdbcType=VARCHAR}, #{classname,jdbcType=VARCHAR}, #{classteacher,jdbcType=VARCHAR}, 
       #{classpeople,jdbcType=INTEGER}, #{classweek,jdbcType=VARCHAR}, #{starttime,jdbcType=VARCHAR}, 
       #{classhours,jdbcType=VARCHAR}, #{classcredit,jdbcType=INTEGER}, #{classaddress,jdbcType=VARCHAR}, 
-      #{image,jdbcType=VARCHAR})
+      #{image,jdbcType=VARCHAR},#{peopleNum,jdbcType=INTEGER})
   </insert>
 
 </mapper>

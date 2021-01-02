@@ -29,7 +29,8 @@ public class teacherController {
         SimpleDateFormat dateFormat= new SimpleDateFormat("yyyyMMddhhmm");
         // 插入Class
         Class c = new Class();
-        c.setClasspeople(0);
+        c.setPeopleNum(0);
+        c.setClasspeople(classPart.getClasspeople());
         c.setClassid(dateFormat.format(date));
         c.setClassname(classPart.getClassname());
         c.setClassteacher(classPart.getClassteacher());

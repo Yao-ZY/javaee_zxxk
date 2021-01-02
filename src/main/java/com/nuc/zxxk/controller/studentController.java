@@ -30,7 +30,5 @@ public class studentController {
         return selectClassService.selectClassByUserId(userId);
     }
 
-    /**
-     * 根据老师/课程名进行搜索
-     * */
+
 }

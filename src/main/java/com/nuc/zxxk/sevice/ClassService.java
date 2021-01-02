@@ -30,4 +30,8 @@ public interface ClassService {
      * 选课  修改课程数量加1
      * */
     int updateClassPeople(String classId,int num);
+    /**
+     * 删除选课
+     * */
+    ResponseVo<String> deleteClass(String classId);
 }

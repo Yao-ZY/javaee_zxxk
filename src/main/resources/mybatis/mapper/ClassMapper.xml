@@ -29,4 +29,7 @@
   <select id="findClassByClassId" parameterType="String" resultType="com.nuc.zxxk.pojo.student">
     select z.* from `selectClass` s,`zxxk_student` z where s.classId=#{classId} and s.userId=z.userId
   </select>
+  <delete id="deleteClass" parameterType="String">
+     delete from Class where classId=#{classId}
+  </delete>
 </mapper>

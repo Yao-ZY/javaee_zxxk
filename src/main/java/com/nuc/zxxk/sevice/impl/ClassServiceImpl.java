@@ -3,6 +3,7 @@ package com.nuc.zxxk.sevice.impl;
 import com.github.pagehelper.PageInfo;
 import com.nuc.zxxk.enums.ClassEnum;
 import com.nuc.zxxk.mapper.ClassMapper;
+import com.nuc.zxxk.mapper.selectClassMapper;
 import com.nuc.zxxk.pojo.Class;
 import com.nuc.zxxk.pojo.student;
 import com.nuc.zxxk.sevice.ClassService;
@@ -20,6 +21,8 @@ import java.util.stream.Collectors;
 public class ClassServiceImpl implements ClassService {
     @Autowired
     ClassMapper classMapper;
+    @Autowired
+    selectClassMapper selectClassMapper;
     @Override
     public ResponseVo<PageInfo>  findAllClass(Integer pageNum, Integer pageSize) {
         List<Class> s_class = classMapper.findAllClass();
@@ -70,5 +73,15 @@ public class ClassServiceImpl implements ClassService {
     @Override
     public int updateClassPeople(String classId,int num) {
         return classMapper.updateClassPeople(classId,num);
+    }
+
+    @Override
+    public ResponseVo<String> deleteClass(String classId) {
+        int n = classMapper.deleteClass(classId);
+        int m = selectClassMapper.deleteSelect(classId);
+        if(n == 0 || m == 0)
+            return ResponseVo.msg(ClassEnum.DELETE_ERROR);
+        else
+        return ResponseVo.msg(ClassEnum.DELETE_SUCCESS);
     }
 }

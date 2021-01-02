@@ -8,7 +8,9 @@ public enum ClassEnum {
     SUCCESS(1,"发布课程成功"),
     Fail(2,"发布课程失败"),
     DELETE_SUCCESS(3,"删除选课成功"),
-    DELETE_ERROR(4,"删除选课失败")
+    DELETE_ERROR(4,"删除选课失败"),
+    SEARCH_ERROR(5,"没有数据"),
+    SELECT_NULL(6,"请填写查找信息")
     ;
 
     Integer code;

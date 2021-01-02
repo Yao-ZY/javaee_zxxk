@@ -49,8 +49,57 @@ public class ClassServiceImpl implements ClassService {
     }
 
     @Override
-    public ResponseVo<List<Class>> findClassByContent(String content) {
-        return null;
+    public ResponseVo<PageInfo> findClassByTeacher(String content,Integer pageNum, Integer pageSize) {
+        List<Class> classList = classMapper.findClassByTeacher(content);
+        if(classList == null) {
+            return ResponseVo.msg(ClassEnum.SEARCH_ERROR);
+        }
+        List<Class> productCategoryVoList = classList.stream()
+                .map(e->{
+                    Class productCategoryVo = new Class();
+                    BeanUtils.copyProperties(e,productCategoryVo);
+                    return productCategoryVo;
+                })
+                .collect(Collectors.toList());
+        PageInfo pageInfo = new PageInfo(classList);
+        pageInfo.setList(productCategoryVoList);
+        return ResponseVo.success(pageInfo);
+    }
+
+    @Override
+    public ResponseVo<PageInfo> findClassByClassName(String content,Integer pageNum, Integer pageSize) {
+        List<Class> classList = classMapper.findClassByClassName(content);
+        if(classList == null) {
+            return ResponseVo.msg(ClassEnum.SEARCH_ERROR);
+        }
+        List<Class> productCategoryVoList = classList.stream()
+                .map(e->{
+                    Class productCategoryVo = new Class();
+                    BeanUtils.copyProperties(e,productCategoryVo);
+                    return productCategoryVo;
+                })
+                .collect(Collectors.toList());
+        PageInfo pageInfo = new PageInfo(classList);
+        pageInfo.setList(productCategoryVoList);
+        return ResponseVo.success(pageInfo);
+    }
+
+    @Override
+    public ResponseVo<PageInfo> findClassByTeacherAndClassName(String teacher, String className,Integer pageNum, Integer pageSize) {
+        List<Class> classList = classMapper.findClassByTeacherAndClassName(teacher, className);
+        if(classList == null) {
+            return ResponseVo.msg(ClassEnum.SEARCH_ERROR);
+        }
+        List<Class> productCategoryVoList = classList.stream()
+                .map(e->{
+                    Class productCategoryVo = new Class();
+                    BeanUtils.copyProperties(e,productCategoryVo);
+                    return productCategoryVo;
+                })
+                .collect(Collectors.toList());
+        PageInfo pageInfo = new PageInfo(classList);
+        pageInfo.setList(productCategoryVoList);
+        return ResponseVo.success(pageInfo);
     }
 
 

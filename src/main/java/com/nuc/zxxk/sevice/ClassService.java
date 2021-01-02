@@ -21,7 +21,9 @@ public interface ClassService {
     /**
      * 模糊搜索课程功能--根据老师/课程名
      * */
-    ResponseVo<List<Class>> findClassByContent(String content);
+    ResponseVo<PageInfo> findClassByTeacher(String content,Integer pageNum, Integer pageSize);
+    ResponseVo<PageInfo> findClassByClassName(String content,Integer pageNum, Integer pageSize);
+    ResponseVo<PageInfo> findClassByTeacherAndClassName(String teacher,String className,Integer pageNum, Integer pageSize);
     /**
      * 老师根据课程查看学生
      * */

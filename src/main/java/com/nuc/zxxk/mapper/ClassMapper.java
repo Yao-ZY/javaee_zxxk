@@ -17,4 +17,10 @@ public interface ClassMapper {
 //    DELETE `user`,info from `user` LEFT JOIN info ON `user`.id=info.id WHERE `user`.id=2
 //    @Delete("delete Class selectClass from Class LEFT JOIN selectClass ON Class.classId=selectClass.classId where classId=#{classId}")
     int deleteClass(@Param("classId") String classId);
+    @Select("select * from Class where classTeacher like '%${teacher}%'")
+    List<Class> findClassByTeacher(String teacher);
+    @Select("select * from Class where className like '%${className}%'")
+    List<Class> findClassByClassName(String className);
+    @Select("select * from Class where classTeacher like '%${teacher}%' and className like '%${className}%'")
+    List<Class> findClassByTeacherAndClassName(String teacher, String className);
 }

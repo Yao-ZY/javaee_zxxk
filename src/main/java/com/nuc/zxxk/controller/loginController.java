@@ -48,7 +48,7 @@ public class loginController {
      * 用户信息
      * */
     @GetMapping("/userInfo")
-    public <T> Object userInfo(HttpSession session){
+    public <T> Object userInfo(@RequestBody HttpSession session){
         return   session.getAttribute(ZXXKConst.CURRENT_USER);
     }
 }

@@ -63,6 +63,10 @@
             <artifactId>hibernate-validator</artifactId>
             <version>6.0.13.Final</version>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
         <!--七牛服务器，用于图片上传-->
         <dependency>
             <groupId>com.qiniu</groupId>

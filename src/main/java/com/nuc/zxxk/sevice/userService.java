@@ -10,8 +10,8 @@ public interface userService<T> {
     ResponseVo<T> login(String username,String password);
 
     /**
-     * 修改个人信息: 老师信息；学生信息
+     * 修改个人信息(密码修改): 老师信息；学生信息
      * */
-    ResponseVo<String> update(T user);
+    ResponseVo<String> update(String  password,String userId);
 
 }

@@ -42,4 +42,8 @@ public class teacherController {
         c.setImage(classPart.getImage());
         return classService.insertClass(c);
     }
+
+    /**
+     * 查询课程人员
+     * */
 }

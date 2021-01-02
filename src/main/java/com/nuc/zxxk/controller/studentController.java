@@ -22,8 +22,15 @@ public class studentController {
     ResponseVo<String> selectOne(@Valid @RequestBody selectClass selectClass){
         return selectClassService.selectOne(selectClass);
     }
+    /**
+     * 展示学生已选课程
+     * */
     @GetMapping("/findSelectClass")
     public ResponseVo<List<Class>> selectClassByUserId(@RequestParam("userId") String userId){
         return selectClassService.selectClassByUserId(userId);
     }
+
+    /**
+     * 根据老师/课程名进行搜索
+     * */
 }

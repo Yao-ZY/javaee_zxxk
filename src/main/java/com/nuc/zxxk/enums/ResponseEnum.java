@@ -5,6 +5,8 @@ import lombok.Getter;
 @Getter
 public enum ResponseEnum {
     SUCCESS(0,"成功"),
+    UPDATE_SUCCESS(6,"密码修改成功"),
+    UPDATE_ERROR(7,"密码修改失败"),
     SUCCESS_OUT(5,"已登出"),
     ERROR(-1,"服务端错误"),
     PASSWORD_ERROR(1,"密码错误"),

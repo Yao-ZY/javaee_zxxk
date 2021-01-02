@@ -51,8 +51,11 @@ public class userServiceImpl<T> implements userService {
     }
 
     @Override
-    public ResponseVo update(Object user) {
-        return null;
+    public ResponseVo<String> update(String password, String userId) {
+       int n= userMapper.updatePassword(password, userId);
+       if(n == 0) return  ResponseVo.error(ResponseEnum.UPDATE_ERROR);
+        return ResponseVo.error(ResponseEnum.UPDATE_SUCCESS);
     }
+
 
 }

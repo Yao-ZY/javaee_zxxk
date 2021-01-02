@@ -27,4 +27,8 @@ public class adminController {
                                                       @RequestParam(required = false,defaultValue = "10") Integer pageSize) {
            return classService.findAllClass(pageNum, pageSize);
        }
+
+     /**
+      * 根据老师进行搜索
+      * */
 }

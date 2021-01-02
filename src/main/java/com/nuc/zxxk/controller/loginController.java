@@ -48,11 +48,11 @@ public class loginController {
      * 用户信息
      * */
     @GetMapping("/userInfo")
-//    public <T> Object userInfo(@RequestBody HttpSession session){
-//        return   session.getAttribute(ZXXKConst.CURRENT_USER);
-//    }
-    public ResponseVo<UserTeacher> userInfo(HttpSession session){
-        UserTeacher user = (UserTeacher) session.getAttribute(ZXXKConst.CURRENT_USER);
-        return ResponseVo.success(user);
+    public <T> Object userInfo(HttpSession session){
+        return   session.getAttribute(ZXXKConst.CURRENT_USER);
     }
+//    public ResponseVo<UserTeacher> userInfo(HttpSession session){
+//        UserTeacher user = (UserTeacher) session.getAttribute(ZXXKConst.CURRENT_USER);
+//        return ResponseVo.success(user);
+//    }
 }

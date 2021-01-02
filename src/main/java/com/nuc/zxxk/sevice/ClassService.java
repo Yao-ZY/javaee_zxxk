@@ -15,7 +15,7 @@ public interface ClassService {
     /**
      * 添加课程功能
      * */
-    ResponseVo<Class> insertClass(Class c);
+    ResponseVo<String> insertClass(Class c);
 
     /**
      * 模糊搜索课程功能--根据老师/课程名

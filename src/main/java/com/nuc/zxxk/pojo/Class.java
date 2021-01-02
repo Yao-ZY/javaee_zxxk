@@ -8,23 +8,14 @@ import javax.validation.constraints.NotBlank;
 public class Class {
 
     private String classid;
-    @NotBlank
     private String image;
-    @NotBlank
     private String classname;
-    @NotBlank
     private String classteacher;
-
     private Integer classpeople;
-    @NotBlank
     private String classweek;
-    @NotBlank
     private String starttime;
-    @NotBlank
     private String classhours;
-    @NotBlank
     private Integer classcredit;
-    @NotBlank
     private String classaddress;
 
 }

@@ -34,7 +34,10 @@ public class ResponseVo<T> {
     public static <T> ResponseVo<T> error(ResponseEnum responseEnum){
         return new ResponseVo<>(responseEnum.getCode(),responseEnum.getDesc());
     }
-    public static <T> ResponseVo<T> error(selectEnum responseEnum){
+    public static <T> ResponseVo<T> msg(selectEnum responseEnum){
+        return new ResponseVo<>(responseEnum.getCode(),responseEnum.getMsg());
+    }
+    public static <T> ResponseVo<T> msg(ClassEnum responseEnum){
         return new ResponseVo<>(responseEnum.getCode(),responseEnum.getMsg());
     }
     public static <T> ResponseVo<T> error(ClassEnum responseEnum){

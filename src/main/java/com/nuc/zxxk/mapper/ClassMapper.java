@@ -6,9 +6,6 @@ import java.util.List;
 
 public interface ClassMapper {
     int insert(Class record);
-
-    int insertSelective(Class record);
-
     List<Class>  findAllClass();
     void updateClassPeople(String classId);
 }

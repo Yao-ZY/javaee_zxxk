@@ -35,8 +35,13 @@ public class ClassServiceImpl implements ClassService {
     }
 
     @Override
-    public ResponseVo<Class> insertClass(Class c) {
-        return null;
+    public ResponseVo<String> insertClass(Class c) {
+        int n= 0;
+        n=classMapper.insert(c);
+        if(n == 0) {
+            return ResponseVo.msg(ClassEnum.Fail);
+        }
+        return ResponseVo.msg(ClassEnum.SUCCESS);
     }
 
     @Override

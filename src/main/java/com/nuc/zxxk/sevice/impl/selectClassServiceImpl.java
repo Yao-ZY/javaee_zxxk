@@ -25,15 +25,15 @@ public class selectClassServiceImpl implements selectClassService {
         int num = countSelectClass(selectClass.getUserId());
         int n = 0;
         if(num == 3) {
-            return ResponseVo.error(selectEnum.COUNT_ERROR);
+            return ResponseVo.msg(selectEnum.COUNT_ERROR);
         }else {
             n = selectClassMapper.insert(selectClass);
             classMapper.updateClassPeople(selectClass.getUserId());
         }
         if(n == 0) {
-            return  ResponseVo.error(selectEnum.Error);
+            return  ResponseVo.msg(selectEnum.Error);
         } else
-        return  ResponseVo.error(selectEnum.SUCCESS);
+        return  ResponseVo.msg(selectEnum.SUCCESS);
     }
 
     @Override

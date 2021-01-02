@@ -40,4 +40,11 @@ public class studentController {
         return classService.findAllByUserId(userId);
     }
 
+    /**
+     * 学生按老师姓名进行搜索
+     * */
+    @GetMapping("/findAllByTeacher")
+    public List<Class> findAllByTeacher(@RequestParam("userId") String userId,@RequestParam("classTeacher") String classTeacher){
+        return classService.findAllByTeacher(userId, classTeacher);
+    }
 }

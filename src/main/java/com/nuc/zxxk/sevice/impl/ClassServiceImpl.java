@@ -153,4 +153,9 @@ public class ClassServiceImpl implements ClassService {
     public List<Class> findAllByUserId(String userId) {
         return classMapper.findAllByUserId(userId);
     }
+
+    @Override
+    public List<Class> findAllByTeacher(String userId, String classTeacher) {
+        return classMapper.findAllByTeacher(userId,classTeacher);
+    }
 }

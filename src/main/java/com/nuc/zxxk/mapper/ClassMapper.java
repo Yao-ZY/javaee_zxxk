@@ -4,6 +4,7 @@ import com.nuc.zxxk.pojo.Class;
 import com.nuc.zxxk.pojo.ClassUpdate;
 import com.nuc.zxxk.pojo.student;
 import org.apache.ibatis.annotations.*;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 @Mapper
@@ -29,4 +30,6 @@ public interface ClassMapper {
     int updateClass(@Param("classUpdate") ClassUpdate classUpdate);
     @Select("select * from Class where classId not in(select classId from selectClass where userId=#{userId})")
     List<Class> findAllByUserId(String userId);
+    @Select("select * from Class where classTeacher like '%${classTeacher}%' and classId not in(select classId from selectClass where userId=#{userId})")
+    List<Class> findAllByTeacher(String userId,String classTeacher);
 }

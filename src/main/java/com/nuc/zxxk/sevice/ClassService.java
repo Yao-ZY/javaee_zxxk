@@ -6,6 +6,7 @@ import com.github.pagehelper.PageInfo;
 import com.nuc.zxxk.pojo.*;
 import com.nuc.zxxk.pojo.Class;
 import com.nuc.zxxk.vo.ResponseVo;
+import org.springframework.web.bind.annotation.RequestParam;
 
 public interface ClassService {
     /**
@@ -49,4 +50,8 @@ public interface ClassService {
      * 学生未选课程
      * */
     List<Class> findAllByUserId(String userId);
+    /**
+     * 学生按老师姓名进行查询
+     * */
+     List<Class> findAllByTeacher(String userId, String classTeacher);
 }

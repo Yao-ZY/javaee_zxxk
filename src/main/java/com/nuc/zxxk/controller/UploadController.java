@@ -10,7 +10,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@CrossOrigin(origins = "http://localhost:4321/zxxk", maxAge = 3600)
+@CrossOrigin(origins = "http://localhost:9527", maxAge = 3600)
 public class UploadController {
     /**
      * 测试上传图片接口功能

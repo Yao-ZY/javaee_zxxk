@@ -3,11 +3,9 @@ package com.nuc.zxxk.controller;
 import com.nuc.zxxk.pojo.selectClass;
 import com.nuc.zxxk.sevice.selectClassService;
 import com.nuc.zxxk.vo.ResponseVo;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
@@ -16,14 +14,14 @@ import javax.validation.Valid;
 public class selectClassController {
     @Autowired
     selectClassService selectClassService;
-    @GetMapping("/deleteSelect")
+    @PostMapping("/deleteSelect")
     public ResponseVo<String> deleteSelectClass(@Valid @RequestBody selectClass selectClass){
        return  selectClassService.deleteSelectClass(selectClass.getClassId(), selectClass.getUserId());
     }
     /**
      * 学生选课
      * */
-    @GetMapping("/selectClass")
+    @PostMapping("/selectClass")
     ResponseVo<String> selectOne(@Valid @RequestBody selectClass selectClass){
         return selectClassService.selectOne(selectClass);
     }

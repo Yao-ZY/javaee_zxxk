@@ -24,6 +24,10 @@ public class selectClassServiceImpl implements selectClassService {
         int num = countSelectClass(selectClass.getUserId());
         int numClass = selectClassMapper.countSelectClassByClassId(selectClass.getClassId())+1;
         int classPeople = classMapper.selectClass(selectClass.getClassId());
+        int m=  selectClassMapper.countSelectClassByClassIdAndUserId(selectClass.getClassId(),selectClass.getUserId());
+        if(m > 0) {
+            return ResponseVo.msg(selectEnum.TEACHER_ERROR);
+        }
         int n = 0;
         if(num == 3) {
             return ResponseVo.msg(selectEnum.COUNT_ERROR);
@@ -49,5 +53,12 @@ public class selectClassServiceImpl implements selectClassService {
     @Override
     public int countSelectClass(String userId) {
         return selectClassMapper.countSelectClass(userId);
+    }
+
+    @Override
+    public ResponseVo<String> deleteSelectClass(String classId, String userId) {
+        int n = selectClassMapper.deleteSelectClass(classId, userId);
+        if(n == 0) return ResponseVo.msg(selectEnum.DELETE_ERROR);
+        return ResponseVo.msg(selectEnum.DELETE_SUCCESS);
     }
 }

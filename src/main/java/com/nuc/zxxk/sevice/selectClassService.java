@@ -20,4 +20,9 @@ public interface selectClassService {
      * 获取学生选课数量
      * */
     public int countSelectClass(String userId);
+
+    /**
+     * 删除选课信息
+     * */
+    ResponseVo<String> deleteSelectClass(String classId,String userId);
 }

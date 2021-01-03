@@ -18,13 +18,7 @@ public class studentController {
     selectClassService selectClassService;
     @Autowired
     ClassService classService;
-    /**
-     * 学生选课
-     * */
-    @GetMapping("/selectClass")
-    ResponseVo<String> selectOne(@Valid @RequestBody selectClass selectClass){
-        return selectClassService.selectOne(selectClass);
-    }
+
     /**
      * 展示学生已选课程
      * */

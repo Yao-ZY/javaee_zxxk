@@ -1,11 +1,8 @@
 package com.nuc.zxxk.controller;
 import com.nuc.zxxk.consts.*;
-import com.nuc.zxxk.pojo.UserStudent;
-import com.nuc.zxxk.pojo.UserTeacher;
+import com.nuc.zxxk.pojo.*;
 import com.nuc.zxxk.vo.ResponseVo;
 import com.nuc.zxxk.enums.ResponseEnum;
-import com.nuc.zxxk.pojo.User;
-import com.nuc.zxxk.pojo.UserLoginFrom;
 import com.nuc.zxxk.sevice.userService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,5 +40,12 @@ public class loginController {
     public ResponseVo<String> loginOut(HttpSession session) {
         session.setAttribute(ZXXKConst.CURRENT_USER,null);
         return ResponseVo.error(ResponseEnum.SUCCESS_OUT);
+    }
+    /**
+     * 首页数量展示
+     * */
+    @PostMapping("/index")
+    public ResponseVo<index> count(){
+        return userService.count();
     }
 }

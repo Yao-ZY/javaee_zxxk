@@ -14,6 +14,9 @@ import javax.validation.Valid;
 public class selectClassController {
     @Autowired
     selectClassService selectClassService;
+    /**
+     * 删除选课
+     * */
     @PostMapping("/deleteSelect")
     public ResponseVo<String> deleteSelectClass(@Valid @RequestBody selectClass selectClass){
        return  selectClassService.deleteSelectClass(selectClass.getClassId(), selectClass.getUserId());

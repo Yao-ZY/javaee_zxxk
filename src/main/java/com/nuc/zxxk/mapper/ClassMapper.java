@@ -32,4 +32,6 @@ public interface ClassMapper {
     List<Class> findAllByUserId(String userId);
     @Select("select * from Class where classTeacher like '%${classTeacher}%' and classId not in(select classId from selectClass where userId=#{userId})")
     List<Class> findAllByTeacher(String userId,String classTeacher);
+    @Select("select count(*) from Class")
+    int countClass();
 }

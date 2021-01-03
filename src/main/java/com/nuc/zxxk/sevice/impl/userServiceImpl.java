@@ -1,9 +1,11 @@
 package com.nuc.zxxk.sevice.impl;
 
+import com.nuc.zxxk.mapper.ClassMapper;
 import com.nuc.zxxk.mapper.studentMapper;
 import com.nuc.zxxk.mapper.teacherMapper;
 import com.nuc.zxxk.pojo.UserStudent;
 import com.nuc.zxxk.pojo.UserTeacher;
+import com.nuc.zxxk.pojo.index;
 import com.nuc.zxxk.vo.ResponseVo;
 import com.nuc.zxxk.enums.ResponseEnum;
 import com.nuc.zxxk.mapper.UserMapper;
@@ -23,6 +25,8 @@ public class userServiceImpl<T> implements userService {
     studentMapper studentMapper;
     @Autowired
     teacherMapper teacherMapper;
+    @Autowired
+    ClassMapper classMapper;
     @Override
     public ResponseVo<T> login(String userId, String password) {
         User user = userMapper.selectByPrimaryKey(userId);
@@ -55,6 +59,12 @@ public class userServiceImpl<T> implements userService {
        int n= userMapper.updatePassword(password, userId);
        if(n == 0) return  ResponseVo.error(ResponseEnum.UPDATE_ERROR);
         return ResponseVo.error(ResponseEnum.UPDATE_SUCCESS);
+    }
+
+    @Override
+    public ResponseVo<index> count() {
+        index index = new index(teacherMapper.countTeacher(),classMapper.countClass());
+        return ResponseVo.success(index);
     }
 
 

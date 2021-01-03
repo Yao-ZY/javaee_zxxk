@@ -107,7 +107,9 @@ public class ClassServiceImpl implements ClassService {
     @Override
     public ResponseVo<PageInfo> findClassByClassId(String classId,Integer pageNum, Integer pageSize) {
         List<student> c_student = classMapper.findClassByClassId(classId);
-        System.out.println(c_student.get(0).toString());
+        if(c_student.size() == 0) {
+            return ResponseVo.msg(ClassEnum.SELECT_ERROR);
+        }
         List<student> productCategoryVoList = c_student.stream()
                 .map(e->{
                     student productCategoryVo = new student();

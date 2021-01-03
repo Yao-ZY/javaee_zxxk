@@ -13,7 +13,8 @@ public enum ClassEnum {
     SELECT_NULL(6,"请填写查找信息"),
     SHOW_ERROR(7,"查看课程失败"),
     UPDATE_ERROR(8,"修改课程信息失败"),
-    UPDATE_SUCCESS(8,"修改课程信息成功")
+    UPDATE_SUCCESS(9,"修改课程信息成功"),
+    SELECT_ERROR(10,"您的课程暂无人员选课")
     ;
 
     Integer code;

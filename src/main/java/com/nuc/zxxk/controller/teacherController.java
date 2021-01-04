@@ -20,7 +20,7 @@ public class teacherController {
     @Autowired
     ClassService classService;
     /**
-     * 发布选课
+     * 发布选课（管理员端、老师端）
      * */
     @PostMapping("/addClass")
     ResponseVo<String> addClass(@Valid  @RequestBody ClassPart classPart){

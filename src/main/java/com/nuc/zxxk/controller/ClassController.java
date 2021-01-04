@@ -18,7 +18,7 @@ public class ClassController {
     @Autowired
     ClassService classService;
     /**
-     * 删除选课
+     * 删除课程
      * */
     @GetMapping("/deleteClass")
     ResponseVo<String> deleteClass(@RequestParam("classId") String classId) {

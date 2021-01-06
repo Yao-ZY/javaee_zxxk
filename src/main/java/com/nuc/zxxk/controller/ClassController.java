@@ -24,6 +24,7 @@ public class ClassController {
     ResponseVo<String> deleteClass(@RequestParam("classId") String classId) {
         return classService.deleteClass(classId);
     }
+
     /**
      * 根据老师1/课程名0/两者都进行查询2/进行搜索课程
      * */

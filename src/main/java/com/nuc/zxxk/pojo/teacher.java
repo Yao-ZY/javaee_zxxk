@@ -40,4 +40,5 @@ public class teacher {
     public void setEmail(String email) {
         this.email = email == null ? null : email.trim();
     }
+
 }

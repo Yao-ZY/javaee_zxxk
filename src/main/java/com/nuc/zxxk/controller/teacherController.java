@@ -43,6 +43,7 @@ public class teacherController {
         return classService.insertClass(c);
     }
 
+
     /**
      * 查询课程人员
      * */

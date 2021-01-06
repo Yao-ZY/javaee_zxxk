@@ -53,5 +53,6 @@ public class QiniuUpload {
             }
         }
         return null;
+
     }
 }

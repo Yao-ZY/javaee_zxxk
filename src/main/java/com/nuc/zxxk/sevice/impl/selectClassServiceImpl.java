@@ -15,6 +15,7 @@ import java.util.List;
 @Service
 @Transactional
 public class selectClassServiceImpl implements selectClassService {
+
     @Autowired
     selectClassMapper selectClassMapper;
     @Autowired

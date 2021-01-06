@@ -10,4 +10,5 @@ public interface UserMapper {
     User selectByPrimaryKey(String id);
     @Update("update user set password=#{password} where userId=#{userId}")
     int updatePassword(@Param("password") String password,@Param("userId") String userId);
+
 }

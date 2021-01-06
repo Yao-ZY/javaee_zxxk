@@ -25,4 +25,5 @@ public class ClassPart {
     private String classaddress;
     @NotBlank(message = "课程图片不能为空")
     private String image;
+
 }

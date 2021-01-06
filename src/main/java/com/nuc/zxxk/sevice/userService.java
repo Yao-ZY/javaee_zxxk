@@ -18,4 +18,5 @@ public interface userService<T> {
      * 首页数量展示
      * */
      ResponseVo<index> count();
+
 }

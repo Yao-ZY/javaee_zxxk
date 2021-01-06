@@ -11,6 +11,7 @@ public interface selectClassService {
      * */
     public ResponseVo<String> selectOne(selectClass selectClass);
 
+
     /**
      * 根据Id查看学生选课
      * */

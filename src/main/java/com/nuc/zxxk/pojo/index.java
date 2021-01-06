@@ -10,5 +10,6 @@ public class index {
     public index(int countTeacher, int countClass) {
         this.countTeacher = countTeacher;
         this.countClass = countClass;
+        
     }
 }

@@ -24,7 +24,6 @@ public class UploadController {
      * */
     @PostMapping("/upload")
     @ResponseBody
-
     public String upload(@RequestParam("file") MultipartFile file) {
         if (file.isEmpty()) {
             return "上传失败，请选择文件";

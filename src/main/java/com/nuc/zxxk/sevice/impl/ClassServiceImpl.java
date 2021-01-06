@@ -127,6 +127,7 @@ public class ClassServiceImpl implements ClassService {
         return classMapper.updateClassPeople(classId,num);
     }
 
+
     @Override
     public ResponseVo<String> deleteClass(String classId) {
         int n = classMapper.deleteClass(classId);

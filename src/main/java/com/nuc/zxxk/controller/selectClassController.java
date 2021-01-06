@@ -23,6 +23,7 @@ public class selectClassController {
     }
     /**
      * 学生选课
+     *
      * */
     @PostMapping("/selectClass")
     ResponseVo<String> selectOne(@Valid @RequestBody selectClass selectClass){

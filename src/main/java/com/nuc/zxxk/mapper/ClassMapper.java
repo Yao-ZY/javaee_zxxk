@@ -34,4 +34,5 @@ public interface ClassMapper {
     List<Class> findAllByTeacher(String userId,String classTeacher);
     @Select("select count(*) from Class")
     int countClass();
+
 }

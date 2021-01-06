@@ -11,4 +11,5 @@ public class UserLoginFrom {
 
     @NotBlank(message = "密码不能为空")
     private String password;
+
 }

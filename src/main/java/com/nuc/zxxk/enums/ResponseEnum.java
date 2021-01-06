@@ -18,6 +18,7 @@ public enum ResponseEnum {
     FILE_ERROE(13,"上传图片失败"),
     ;
 
+
     Integer code;
     String desc;
 

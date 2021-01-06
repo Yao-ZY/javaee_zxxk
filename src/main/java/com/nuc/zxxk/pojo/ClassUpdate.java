@@ -23,4 +23,5 @@ public class ClassUpdate {
     private Integer classcredit;
     @NotBlank(message = "请传递完整数据")
     private String classaddress;
+
 }

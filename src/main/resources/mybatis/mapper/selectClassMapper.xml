@@ -18,4 +18,5 @@
   <select id="findAllSelectClassByUserId" parameterType="String" resultType="com.nuc.zxxk.pojo.Class">
     select * from `Class` c,`selectClass` s where s.userId=#{userId} and c.classId=s.classId
   </select>
+
 </mapper>

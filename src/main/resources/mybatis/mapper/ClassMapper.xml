@@ -13,6 +13,7 @@
     <result column="classAddress" jdbcType="VARCHAR" property="classaddress" />
     <result column="image" jdbcType="VARCHAR" property="image" />
   </resultMap>
+
   <select id="findAllClass" resultType="com.nuc.zxxk.pojo.Class" >
      select * from  `Class`
   </select>

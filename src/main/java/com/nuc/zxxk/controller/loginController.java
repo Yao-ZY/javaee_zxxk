@@ -20,6 +20,7 @@ public class loginController {
     /**
      * 登录
      * */
+
     @PostMapping("/login")
     public ResponseVo<User> login(@Valid @RequestBody  UserLoginFrom userLoginFrom,
                                   BindingResult bindingResult,

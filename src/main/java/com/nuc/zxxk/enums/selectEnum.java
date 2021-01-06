@@ -14,6 +14,7 @@ public enum selectEnum {
     DELETE_SUCCESS(7,"删除选课成功"),
     ;
 
+
     Integer code;
     String msg;
     selectEnum(Integer code, String msg){

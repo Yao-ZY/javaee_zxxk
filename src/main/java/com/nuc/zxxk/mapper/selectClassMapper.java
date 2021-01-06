@@ -18,4 +18,5 @@ public interface selectClassMapper {
     int deleteSelect(String classId);
     @Delete("delete from selectClass where classId=#{classId} and userId=#{userId}")
     int deleteSelectClass(String classId,String userId);
+
 }

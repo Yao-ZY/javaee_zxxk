@@ -14,6 +14,7 @@ public interface ClassService {
      * */
     ResponseVo<PageInfo> findAllClass(Integer pageNum, Integer pageSize);
 
+
     /**
      * 添加课程功能
      * */

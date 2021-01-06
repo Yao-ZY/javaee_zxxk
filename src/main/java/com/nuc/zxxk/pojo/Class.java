@@ -19,4 +19,5 @@ public class Class {
     private Integer classcredit;
     private String classaddress;
 
+
 }

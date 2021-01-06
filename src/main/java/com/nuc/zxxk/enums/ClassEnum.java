@@ -17,6 +17,7 @@ public enum ClassEnum {
     SELECT_ERROR(10,"您的课程暂无人员选课")
     ;
 
+
     Integer code;
     String msg;
     ClassEnum(Integer code, String msg){

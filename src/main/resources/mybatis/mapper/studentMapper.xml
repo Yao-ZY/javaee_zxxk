@@ -13,4 +13,5 @@
   <select id="selectUserStudent" parameterType="java.lang.String" resultType="com.nuc.zxxk.pojo.UserStudent">
      select * from `user` u,`zxxk_student` s where u.userId=s.userId and s.userId=#{userId}
   </select>
+
 </mapper>
